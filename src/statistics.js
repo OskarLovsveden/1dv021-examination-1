@@ -19,9 +19,25 @@
  */
 function descriptiveStatistics (numbers) {
   // TODO: Write your code here.
+
+  validateArray(numbers)
 }
 
-// TODO: Write your code here.
+function validateArray (data) {
+  if (!Array.isArray(data)) {
+    throw new TypeError('The passed argument is not an array.')
+  }
+
+  if (!data.length) {
+    throw new TypeError('The passed array contains no elements.')
+  }
+
+  if (typeof data !== 'number') {
+    throw new TypeError('The passed array contains not just numbers.')
+  }
+}
+
+// TODO: WRITE THINGS
 
 // Exports
 exports.descriptiveStatistics = descriptiveStatistics
