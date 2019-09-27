@@ -1,8 +1,8 @@
 /**
  * Module for obtaining descriptive information about a set of data.
  *
- * @author TODO: Write your name here.
- * @version 1.2.0
+ * @author Oskar Lövsveden
+ * @version 1.0.0
  */
 
 'use strict'
