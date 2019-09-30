@@ -18,13 +18,9 @@
  * @returns {{maximum: number, mean: number, median: number, minimum: number, mode: number[], range: number, standardDeviation: number}}
  */
 function descriptiveStatistics (numbers) {
-  // TODO: Write your code here.
+  // TODO: Collect all values in an object
 
-}
-
-function duplicateArray (numbers) {
-  const copy = numbers.slice(0)
-  return copy
+  maximum(numbers)
 }
 
 function validateArray (data) {
@@ -36,16 +32,26 @@ function validateArray (data) {
     throw new TypeError('The passed array contains no elements.')
   }
 
-  if (typeof data !== 'number') {
-    throw new TypeError('The passed array contains not just numbers.')
+  for (let i = 0; i < data.length; i++) {
+    if (typeof (data[i]) !== 'number') {
+      throw new TypeError('The passed array contains not just numbers.')
+    }
   }
 }
 
+function maximum (numbers) {
+  validateArray(numbers)
+
+  const copy = numbers.slice(0)
+
+  const maxValue = Math.max(...copy)
+  return maxValue
+}
 // TODO: WRITE FUNCTIONS FOR Maximum, Mean, Median, Minimum, Mode, Range, Standard Deviation
 
 // Exports
 exports.descriptiveStatistics = descriptiveStatistics
-exports.maximum = undefined
+exports.maximum = maximum
 exports.mean = undefined
 exports.median = undefined
 exports.minimum = undefined
