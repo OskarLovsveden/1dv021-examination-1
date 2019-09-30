@@ -24,7 +24,7 @@ function descriptiveStatistics (numbers) {
   mean(numbers)
   median(numbers)
   minimum(numbers)
-  // mode
+  mode(numbers)
   range(numbers)
   // stand-dev
 }
@@ -91,6 +91,10 @@ function minimum (numbers) {
 }
 // TODO: WRITE FUNCTION FOR  Mode...
 
+function mode (numbers) {
+  validateArray(numbers)
+}
+
 function range (numbers) {
   validateArray(numbers)
 
@@ -106,6 +110,6 @@ exports.maximum = maximum
 exports.mean = mean
 exports.median = median
 exports.minimum = minimum
-exports.mode = undefined
+exports.mode = mode
 exports.range = range
 exports.standardDeviation = undefined
