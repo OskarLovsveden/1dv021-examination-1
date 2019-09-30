@@ -21,6 +21,7 @@ function descriptiveStatistics (numbers) {
   // TODO: Collect all values in an object
 
   maximum(numbers)
+  mean(numbers)
 }
 
 function validateArray (data) {
@@ -32,6 +33,7 @@ function validateArray (data) {
     throw new TypeError('The passed array contains no elements.')
   }
 
+  // for-loop checking if data[] only contains number.
   for (let i = 0; i < data.length; i++) {
     if (typeof (data[i]) !== 'number') {
       throw new TypeError('The passed array contains not just numbers.')
@@ -47,12 +49,25 @@ function maximum (numbers) {
   const maxValue = Math.max(...copy)
   return maxValue
 }
-// TODO: WRITE FUNCTIONS FOR Maximum, Mean, Median, Minimum, Mode, Range, Standard Deviation
+
+function mean (numbers) {
+  validateArray(numbers)
+  let sumOfNumbers = 0
+
+  // for-loop adding all numbers in numbers[] to sumOfNumbers.
+  for (let i = 0; i < numbers.length; i++) {
+    sumOfNumbers += numbers[i]
+  }
+
+  const meanValue = sumOfNumbers / numbers.length
+  return meanValue
+}
+// TODO: WRITE FUNCTIONS FOR  Mean, Median, Minimum, Mode, Range, Standard Deviation
 
 // Exports
 exports.descriptiveStatistics = descriptiveStatistics
 exports.maximum = maximum
-exports.mean = undefined
+exports.mean = mean
 exports.median = undefined
 exports.minimum = undefined
 exports.mode = undefined
