@@ -20,7 +20,11 @@
 function descriptiveStatistics (numbers) {
   // TODO: Write your code here.
 
-  validateArray(numbers)
+}
+
+function duplicateArray (numbers) {
+  const copy = numbers.slice(0)
+  return copy
 }
 
 function validateArray (data) {
@@ -37,7 +41,7 @@ function validateArray (data) {
   }
 }
 
-// TODO: WRITE THINGS
+// TODO: WRITE FUNCTIONS FOR Maximum, Mean, Median, Minimum, Mode, Range, Standard Deviation
 
 // Exports
 exports.descriptiveStatistics = descriptiveStatistics
