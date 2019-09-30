@@ -26,7 +26,7 @@ function descriptiveStatistics (numbers) {
   minimum(numbers)
   mode(numbers)
   range(numbers)
-  // stand-dev
+  standardDeviation(numbers)
 }
 
 function validateArray (data) {
@@ -74,6 +74,8 @@ function median (numbers) {
 
   // Copy and sort numbers[] low to high
   const copy = numbers.slice().sort((a, b) => a - b)
+  // https://www.jstips.co/en/javascript/array-average-and-median/
+  // Used this as inspiration for getting my low/high index.
   const lowMiddle = Math.floor((copy.length - 1) / 2)
   const highMiddle = Math.ceil((copy.length - 1) / 2)
   const medianValue = (copy[lowMiddle] + copy[highMiddle]) / 2
@@ -90,6 +92,9 @@ function minimum (numbers) {
   return minValue
 }
 // TODO: WRITE FUNCTION FOR  Mode...
+/*
+
+*/
 
 function mode (numbers) {
   validateArray(numbers)
@@ -112,4 +117,4 @@ exports.median = median
 exports.minimum = minimum
 exports.mode = mode
 exports.range = range
-exports.standardDeviation = undefined
+exports.standardDeviation = standardDeviation
