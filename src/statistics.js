@@ -23,6 +23,7 @@ function descriptiveStatistics (numbers) {
   maximum(numbers)
   mean(numbers)
   median(numbers)
+  minimum(numbers)
 }
 
 function validateArray (data) {
@@ -76,14 +77,23 @@ function median (numbers) {
 
   return medianValue
 }
-// TODO: WRITE FUNCTIONS FOR  Median, Minimum, Mode, Range, Standard Deviation
+
+function minimum (numbers) {
+  validateArray(numbers)
+
+  const copy = numbers.slice(0)
+
+  const minValue = Math.min(...copy)
+  return minValue
+}
+// TODO: WRITE FUNCTIONS FOR  Minimum, Mode, Range, Standard Deviation
 
 // Exports
 exports.descriptiveStatistics = descriptiveStatistics
 exports.maximum = maximum
 exports.mean = mean
 exports.median = median
-exports.minimum = undefined
+exports.minimum = minimum
 exports.mode = undefined
 exports.range = undefined
 exports.standardDeviation = undefined
