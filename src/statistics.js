@@ -22,6 +22,7 @@ function descriptiveStatistics (numbers) {
 
   maximum(numbers)
   mean(numbers)
+  median(numbers)
 }
 
 function validateArray (data) {
@@ -30,7 +31,7 @@ function validateArray (data) {
   }
 
   if (!data.length) {
-    throw new TypeError('The passed array contains no elements.')
+    throw new Error('The passed array contains no elements.')
   }
 
   // for-loop checking if data[] only contains number.
@@ -52,6 +53,7 @@ function maximum (numbers) {
 
 function mean (numbers) {
   validateArray(numbers)
+
   let sumOfNumbers = 0
 
   // for-loop adding all numbers in numbers[] to sumOfNumbers.
@@ -62,13 +64,25 @@ function mean (numbers) {
   const meanValue = sumOfNumbers / numbers.length
   return meanValue
 }
-// TODO: WRITE FUNCTIONS FOR  Mean, Median, Minimum, Mode, Range, Standard Deviation
+
+function median (numbers) {
+  validateArray(numbers)
+
+  // Copy and sort numbers[] low to high
+  const copy = numbers.slice().sort((a, b) => a - b)
+  const lowMiddle = Math.floor((copy.length - 1) / 2)
+  const highMiddle = Math.ceil((copy.length - 1) / 2)
+  const medianValue = (copy[lowMiddle] + copy[highMiddle]) / 2
+
+  return medianValue
+}
+// TODO: WRITE FUNCTIONS FOR  Median, Minimum, Mode, Range, Standard Deviation
 
 // Exports
 exports.descriptiveStatistics = descriptiveStatistics
 exports.maximum = maximum
 exports.mean = mean
-exports.median = undefined
+exports.median = median
 exports.minimum = undefined
 exports.mode = undefined
 exports.range = undefined
