@@ -108,6 +108,22 @@ function range (numbers) {
 }
 
 // ...Standard Deviation
+// - räkna ut medelvärdet för alla tal i numbers
+// - roten ur varje tal på (numbers[] - medelvärdet)
+// - summan från alla tal på tidigare rad / antal nummer i numbers[]
+
+function standardDeviation (numbers) {
+  let deviation = 0
+  const meanValue = mean(numbers)
+  let sumOfSqrdNums = 0
+
+  for (let i = 0; i < numbers.length; i++) {
+    sumOfSqrdNums += Math.pow((numbers[i] - meanValue), 0.5)
+    return sumOfSqrdNums
+  }
+  deviation = sumOfSqrdNums / numbers.length
+  return deviation
+}
 
 // Exports
 exports.descriptiveStatistics = descriptiveStatistics
