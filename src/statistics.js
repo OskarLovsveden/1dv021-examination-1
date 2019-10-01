@@ -92,10 +92,6 @@ function minimum (numbers) {
   return minValue
 }
 // TODO: WRITE FUNCTION FOR  Mode...
-/*
-
-*/
-
 function mode (numbers) {
   validateArray(numbers)
 }
@@ -107,22 +103,20 @@ function range (numbers) {
   return rangeValue
 }
 
-// ...Standard Deviation
-// - räkna ut medelvärdet för alla tal i numbers
-// - roten ur varje tal på (numbers[] - medelvärdet)
-// - summan från alla tal på tidigare rad / antal nummer i numbers[]
-
 function standardDeviation (numbers) {
-  let deviation = 0
+  let SD = 0
+  // Calls on mean(numbers) to get the mean value.
   const meanValue = mean(numbers)
   let sumOfSqrdNums = 0
 
+  // Loops through numbers..
   for (let i = 0; i < numbers.length; i++) {
-    sumOfSqrdNums += Math.pow((numbers[i] - meanValue), 0.5)
-    return sumOfSqrdNums
+    // .. subtracting mean value from each element, squares it and adds it to sumOfSqrdNums.
+    sumOfSqrdNums += Math.pow((numbers[i] - meanValue), 2)
   }
-  deviation = sumOfSqrdNums / numbers.length
-  return deviation
+  // Square root of (sumOfSqrdNums divied by the amount of elements in numbers[]).
+  SD = Math.sqrt(sumOfSqrdNums / numbers.length)
+  return SD
 }
 
 // Exports
