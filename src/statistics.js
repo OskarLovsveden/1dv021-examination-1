@@ -18,15 +18,17 @@
  * @returns {{maximum: number, mean: number, median: number, minimum: number, mode: number[], range: number, standardDeviation: number}}
  */
 function descriptiveStatistics (numbers) {
-  // TODO: Collect all values in an object
+  const descStats = {
+    maximum: maximum(numbers),
+    mean: mean(numbers),
+    median: median(numbers),
+    minimum: minimum(numbers),
+    mode: mode(numbers),
+    range: range(numbers),
+    standardDeviation: standardDeviation(numbers)
+  }
 
-  maximum(numbers)
-  mean(numbers)
-  median(numbers)
-  minimum(numbers)
-  mode(numbers)
-  range(numbers)
-  standardDeviation(numbers)
+  return descStats
 }
 
 function validateArray (data) {
