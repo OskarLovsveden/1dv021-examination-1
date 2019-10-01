@@ -91,10 +91,39 @@ function minimum (numbers) {
   const minValue = Math.min(...copy)
   return minValue
 }
-// TODO: WRITE FUNCTION FOR  Mode...
+
 function mode (numbers) {
   validateArray(numbers)
+
+  const freqTable = {}
+
+  // for-loop numbers[]...
+  for (let i = 0; i < numbers.length; i++) {
+    const number = numbers[i]
+
+    // ...if number doesn't exist(undefined), add it and assign 1 as value...
+    if (freqTable[number] === undefined) {
+      freqTable[number] = 1
+      // ...else number does exist, increase value ++
+    } else {
+      freqTable[number]++
+    }
+  }
+
+  // Looks for freqTable{}(s) highest values...
+  const maxValue = Object.values(freqTable).sort().pop()
+
+  // ...and adds the corresponding keys to an array[].
+  const mostFrequentNumbers = Object.keys(freqTable)
+    .filter(number => freqTable[number] === maxValue)
+
+  console.log(mostFrequentNumbers)
+
+  // Maps out a new array and sorts it.
+  return mostFrequentNumbers.map(Number).sort((a, b) => a - b)
 }
+
+// -------------------- Range() --------------------
 
 function range (numbers) {
   validateArray(numbers)
@@ -104,7 +133,7 @@ function range (numbers) {
 }
 
 function standardDeviation (numbers) {
-  let SD = 0
+  let sDev = 0
   // Calls on mean(numbers) to get the mean value.
   const meanValue = mean(numbers)
   let sumOfSqrdNums = 0
@@ -115,8 +144,8 @@ function standardDeviation (numbers) {
     sumOfSqrdNums += Math.pow((numbers[i] - meanValue), 2)
   }
   // Square root of (sumOfSqrdNums divied by the amount of elements in numbers[]).
-  SD = Math.sqrt(sumOfSqrdNums / numbers.length)
-  return SD
+  sDev = Math.sqrt(sumOfSqrdNums / numbers.length)
+  return sDev
 }
 
 // Exports
