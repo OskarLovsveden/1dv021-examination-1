@@ -108,10 +108,12 @@ function median (numbers) {
   validateArray(numbers)
 
   const copy = numbers.slice().sort((a, b) => a - b)
+
   // https://www.jstips.co/en/javascript/array-average-and-median/
   // Used this as inspiration for getting my low/high index.
   const lowMiddle = Math.floor((copy.length - 1) / 2)
   const highMiddle = Math.ceil((copy.length - 1) / 2)
+
   const medianValue = (copy[lowMiddle] + copy[highMiddle]) / 2
 
   return medianValue
@@ -136,6 +138,10 @@ function minimum (numbers) {
 }
 
 /**
+ * Used this as inspiration for this function.
+ * 1DV021 - Vlogg V39 - Det var en gång en gång och den var sandad.
+ * https://www.youtube.com/watch?time_continue=1698&v=CCTWjpC1xCU
+ *
  * Returns the most frequently occurring number from a set of numbers.
  *
  * @param {number[]} numbers The set of data to be analyzed.
@@ -183,9 +189,8 @@ function mode (numbers) {
  * @returns {number} The range between the biggest and smallest number.
  */
 function range (numbers) {
-  validateArray(numbers)
-
   const rangeValue = maximum(numbers) - minimum(numbers)
+
   return rangeValue
 }
 
