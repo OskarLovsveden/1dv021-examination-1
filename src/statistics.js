@@ -31,23 +31,39 @@ function descriptiveStatistics (numbers) {
   return descStats
 }
 
-function validateArray (data) {
-  if (!Array.isArray(data)) {
+/**
+ * Checks if the passed argument is an array containing only numbers.
+ *
+ * @param {number[]} numbers The set of data to be analyzed.
+ * @throws {TypeError} The passed argument is not an array.
+ * @throws {Error} The passed array contains no elements.
+ * @throws {TypeError} The passed array contains not just numbers.
+ */
+function validateArray (numbers) {
+  if (!Array.isArray(numbers)) {
     throw new TypeError('The passed argument is not an array.')
   }
 
-  if (!data.length) {
+  if (!numbers.length) {
     throw new Error('The passed array contains no elements.')
   }
 
-  // for-loop checking if data[] only contains number.
-  for (let i = 0; i < data.length; i++) {
-    if (typeof (data[i]) !== 'number') {
+  for (let i = 0; i < numbers.length; i++) {
+    if (typeof (numbers[i]) !== 'number') {
       throw new TypeError('The passed array contains not just numbers.')
     }
   }
 }
 
+/**
+ * Returns the highest value number from a set of numbers.
+ *
+ * @param {number[]} numbers The set of data to be analyzed.
+ * @throws {TypeError} The passed argument is not an array.
+ * @throws {Error} The passed array contains no elements.
+ * @throws {TypeError} The passed array contains not just numbers.
+ * @returns {number} The biggest number.
+ */
 function maximum (numbers) {
   validateArray(numbers)
 
@@ -57,12 +73,20 @@ function maximum (numbers) {
   return maxValue
 }
 
+/**
+ * Returns the mean value from a set of numbers.
+ *
+ * @param {number[]} numbers The set of data to be analyzed.
+ * @throws {TypeError} The passed argument is not an array.
+ * @throws {Error} The passed array contains no elements.
+ * @throws {TypeError} The passed array contains not just numbers.
+ * @returns {number} The mean value.
+ */
 function mean (numbers) {
   validateArray(numbers)
 
   let sumOfNumbers = 0
 
-  // for-loop adding all numbers in numbers[] to sumOfNumbers.
   for (let i = 0; i < numbers.length; i++) {
     sumOfNumbers += numbers[i]
   }
@@ -71,10 +95,18 @@ function mean (numbers) {
   return meanValue
 }
 
+/**
+ * Returns the median value from a set of numbers.
+ *
+ * @param {number[]} numbers The set of data to be analyzed.
+ * @throws {TypeError} The passed argument is not an array.
+ * @throws {Error} The passed array contains no elements.
+ * @throws {TypeError} The passed array contains not just numbers.
+ * @returns {number} The median value.
+ */
 function median (numbers) {
   validateArray(numbers)
 
-  // Copy and sort numbers[] low to high
   const copy = numbers.slice().sort((a, b) => a - b)
   // https://www.jstips.co/en/javascript/array-average-and-median/
   // Used this as inspiration for getting my low/high index.
@@ -85,6 +117,15 @@ function median (numbers) {
   return medianValue
 }
 
+/**
+ * Returns the lowest value number from a set of numbers.
+ *
+ * @param {number[]} numbers The set of data to be analyzed.
+ * @throws {TypeError} The passed argument is not an array.
+ * @throws {Error} The passed array contains no elements.
+ * @throws {TypeError} The passed array contains not just numbers.
+ * @returns {number} The smallest number.
+ */
 function minimum (numbers) {
   validateArray(numbers)
 
@@ -94,6 +135,15 @@ function minimum (numbers) {
   return minValue
 }
 
+/**
+ * Returns the most frequently occurring number from a set of numbers.
+ *
+ * @param {number[]} numbers The set of data to be analyzed.
+ * @throws {TypeError} The passed argument is not an array.
+ * @throws {Error} The passed array contains no elements.
+ * @throws {TypeError} The passed array contains not just numbers.
+ * @returns {number[]} The mode in the form of an array.
+ */
 function mode (numbers) {
   validateArray(numbers)
 
@@ -119,14 +169,19 @@ function mode (numbers) {
   const mostFrequentNumbers = Object.keys(freqTable)
     .filter(number => freqTable[number] === maxValue)
 
-  console.log(mostFrequentNumbers)
-
   // Maps out a new array and sorts it.
   return mostFrequentNumbers.map(Number).sort((a, b) => a - b)
 }
 
-// -------------------- Range() --------------------
-
+/**
+ * Returns the range between the highest and lowest value number from a set of numbers.
+ *
+ * @param {number[]} numbers The set of data to be analyzed.
+ * @throws {TypeError} The passed argument is not an array.
+ * @throws {Error} The passed array contains no elements.
+ * @throws {TypeError} The passed array contains not just numbers.
+ * @returns {number} The range between the biggest and smallest number.
+ */
 function range (numbers) {
   validateArray(numbers)
 
@@ -134,6 +189,15 @@ function range (numbers) {
   return rangeValue
 }
 
+/**
+ * Returns the standard deviation from a set of numbers.
+ *
+ * @param {number[]} numbers The set of data to be analyzed.
+ * @throws {TypeError} The passed argument is not an array.
+ * @throws {Error} The passed array contains no elements.
+ * @throws {TypeError} The passed array contains not just numbers.
+ * @returns {number} The standard deviation of the passed argument.
+ */
 function standardDeviation (numbers) {
   let sDev = 0
   // Calls on mean(numbers) to get the mean value.
