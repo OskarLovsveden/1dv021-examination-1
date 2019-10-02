@@ -168,14 +168,10 @@ function mode (numbers) {
     }
   }
 
-  // Looks for freqTable{}(s) highest values...
   const maxValue = Object.values(freqTable).sort().pop()
-
-  // ...and adds the corresponding keys to an array[].
   const mostFrequentNumbers = Object.keys(freqTable)
     .filter(number => freqTable[number] === maxValue)
 
-  // Maps out a new array and sorts it.
   return mostFrequentNumbers.map(Number).sort((a, b) => a - b)
 }
 
@@ -205,7 +201,6 @@ function range (numbers) {
  */
 function standardDeviation (numbers) {
   let sDev = 0
-  // Calls on mean(numbers) to get the mean value.
   const meanValue = mean(numbers)
   let sumOfSqrdNums = 0
 
